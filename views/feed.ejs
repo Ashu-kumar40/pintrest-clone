@@ -1,0 +1,212 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0"
+    />
+    <link rel="stylesheet" href="/stylesheets/feed.css" />
+    <title>Pinteresting | Gallery Layout</title>
+  </head>
+  <!-- A Simple non functional Pinterest inspired page layout created using only HTML and CSS.
+       Created by M. Hassler - Hassified -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+  <body>
+    <div class="menu">
+      <img
+        draggable="false"
+        class="logo"
+        src="https://cdn1.iconfinder.com/data/icons/logotypes/32/pinterest-512.png"
+      />
+      <a class="home">Home</a>
+      <input id="one" type="text" class="search-bar" placeholder="Search" />
+      <button id="two" class="search-bar"></button>
+      <div class="icon-container">
+        <img
+          tabindex="1"
+          draggable="false"
+          class="icon bell"
+          src="https://i.hizliresim.com/rcvolcu.png"
+        />
+        <img
+          tabindex="1"
+          draggable="false"
+          class="icon message"
+          src="https://i.hizliresim.com/newumah.png"
+        />
+        <img
+          tabindex="1"
+          draggable="false"
+          class="icon pp"
+          src="https://i.pinimg.com/564x/bd/94/ce/bd94ce28cf8aefb521bac31d547f6409.jpg"
+        />
+        <img
+          tabindex="1"
+          draggable="false"
+          class="icon btn"
+          src="https://i.hizliresim.com/g15mqud.png"
+        />
+
+        <!----FOCUS----->
+        <div tabindex="1" class="focus-bar bell-bar">nothing</div>
+        <!-------------------->
+        <div tabindex="1" class="focus-bar message-bar">you are alone</div>
+        <!-------------------->
+        <div tabindex="1" class="focus-bar pp-bar">
+          <img
+            src="https://i.pinimg.com/564x/bd/94/ce/bd94ce28cf8aefb521bac31d547f6409.jpg"
+          /><a href="https://github.com/devrimos" target="_blank">devrimos</a>
+        </div>
+        <!-------------------->
+        <div tabindex="1" class="focus-bar btn-bar">¯\_( ͡° ͜ʖ ͡°)_/¯</div>
+      </div>
+    </div>
+    <!--------------------------->
+    <div class="responsive-search-bar">
+      <input type="text" />
+      <p class="close">❌</p>
+    </div>
+    <!--------------------------->
+    <div class="container">
+      <div class="window">
+        <img
+          class="foto"
+          src="https://i.pinimg.com/736x/47/5e/ba/475eba57454015bfe214e8722e2422a1.jpg"
+        />
+        <p class="content">Follow me</p>
+        <img
+          class="user"
+          src="https://i.pinimg.com/236x/58/9c/8f/589c8ffa48aa58004b6221b60a15f05e.jpg"
+        />
+        <a class="username">bruhmomento</a>
+
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img
+                src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png"
+              />
+              <img
+                src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-------------------->
+      <div class="window">
+        <img
+          class="foto"
+          src="https://i.pinimg.com/236x/34/0c/43/340c4350e10d6fac215d2a1a28410f6a.jpg"
+        />
+        <p class="content">Like my pen</p>
+        <img
+          class="user"
+          src="https://i.pinimg.com/236x/95/9c/d3/959cd32eba7a0b6cecacfe086a6c1a47.jpg"
+        />
+        <a class="username">devrimos</a>
+
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img
+                draggable="false"
+                src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png"
+              />
+              <img
+                draggable="false"
+                src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-------------------->
+      <div class="window">
+        <img
+          class="foto"
+          src="https://i.pinimg.com/564x/cc/3a/4c/cc3a4c281e75b599b967e1bc8e6e3863.jpg"
+        />
+        <p class="content">Hover</p>
+        <img
+          class="user"
+          src="https://i.pinimg.com/236x/8b/2b/aa/8b2baa42f72980861f541a315446ec5f.jpg"
+        />
+        <a class="username">usamaladin</a>
+
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img
+                draggable="false"
+                src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png"
+              />
+              <img
+                draggable="false"
+                src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-------------------->
+      <div class="window">
+        <img
+          class="foto"
+          src="https://i.pinimg.com/236x/69/1b/17/691b1705fc94d871d2fc6207bf8c4fe8.jpg"
+        />
+        <p class="content">Yeeesss</p>
+        <img
+          class="user"
+          src="https://i.pinimg.com/236x/46/1d/f7/461df750a734b8c580246e6618c6919a.jpg"
+        />
+        <a class="username">anon</a>
+
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img
+                draggable="false"
+                src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png"
+              />
+              <img
+                draggable="false"
+                src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
