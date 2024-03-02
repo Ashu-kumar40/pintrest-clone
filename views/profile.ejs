@@ -19,8 +19,8 @@
         <div id="lower-bg">
           <div class="text">
             <div>
-              <h3 class="name">Full Name</h3>
-              <p class="username">@username</p>
+              <p class="name"><%= user.fullName %></p>
+              <p class="username">@<%= user.username %></p>
             </div>
             <p class="title">
               Web developer & <br />
@@ -60,44 +60,26 @@
               />
             </a>
           </div>
-          <!-- <div id="btn">
-            <button class="msg">Subscribe</button>
-            <button class="msg">Message</button>
-          </div> -->
-
-          <!-- <div id="l-c-s">
-            <div class="num">
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/fluency-systems-regular/48/facebook-like--v1.png"
-                alt="facebook-like--v1"
-              />
-              <span>35k</span>
-            </div>
-            <div class="num dvr"></div>
-            <div class="num">
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/fluency-systems-regular/48/speech-bubble--v1.png"
-                alt="speech-bubble--v1"
-              />
-              <span>20k</span>
-            </div>
-            <div class="num dvr"></div>
-            <div class="num">
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/pulsar-line/48/share.png"
-                alt="share"
-              />
-              <span>15k</span>
-            </div>
-          </div> -->
+          <a href="/logout" class="btn-primary logout">Logout</a>
         </div>
       </div>
+      <form class="upload-file-form" action="/upload" method="post" enctype="multipart/form-data">
+        <input class="inp-desc" type="text" name="description" id="" placeholder="Write something">
+        <input class="" type="file" name="file" />
+        <button class="btn-primary" type="sybmit">Upload File</button>
+      </form>
     </div>
+
+    <div class="feed-img-container">
+      <div class="feed-img">
+        <img
+          class="feed-image"
+          src="/images/22f24d25-f337-4282-aa4e-64d2a6b873ce.jpeg"
+          alt="img"
+        />
+        <div class="description">this is description</div>
+      </div>
+    </div>
+
   </body>
 </html>

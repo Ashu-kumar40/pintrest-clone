@@ -3,6 +3,9 @@ var router = express.Router();
 var userModel = require("./users");
 const passport = require("passport");
 
+//for uploading files require the following package
+const upload = require("./multer");
+
 // these below two lines are for user login
 const localStrategy = require("passport-local");
 passport.use(new localStrategy(userModel.authenticate()));
@@ -14,15 +17,28 @@ router.get("/", function (req, res, next) {
 
 router.get("/login", function (req, res, next) {
   // console.log(req.flash("error")); // this line is possible because of making faileureFlash: true, in login route
-  res.render("login", {error: req.flash('error')}); // here we are passing the value of error to login.ejs file check that file.
+  res.render("login", { error: req.flash("error") }); // here we are passing the value of error to login.ejs file check that file.
 });
 
 router.get("/feed", function (req, res, next) {
   res.render("feed");
 });
 
-router.get("/profile", isLoggedIn, function (req, res, next) {
-  res.render("profile")
+router.get("/profile", isLoggedIn, async function (req, res, next) {
+  // to get the profile information on the profile route, we need have access of user that logged in, here is we can do this
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  console.log(user); // we can see the user details in console
+  res.render("profile", { user });
+});
+
+// route for file upload
+router.post("/upload", isLoggedIn, upload.single("file"), function (req, res, next) {
+  if (!req.file) {
+     return res.status(404).send("No file was uploaded!");
+  }
+  res.send("File uploaded succesfully:)")
 });
 
 router.post("/register", function (req, res) {
@@ -48,8 +64,7 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/profile",
     failureRedirect: "/login",
-    failureFlash:true, // to show the flash messages if user fill wrong details
-
+    failureFlash: true, // to show the flash messages if user fill wrong details
   }),
   function (req, res) {}
 );
