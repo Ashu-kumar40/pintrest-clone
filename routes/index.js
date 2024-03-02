@@ -13,7 +13,8 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/login", function (req, res, next) {
-  res.render("login");
+  // console.log(req.flash("error")); // this line is possible because of making faileureFlash: true, in login route
+  res.render("login", {error: req.flash('error')}); // here we are passing the value of error to login.ejs file check that file.
 });
 
 router.get("/feed", function (req, res, next) {
@@ -21,7 +22,7 @@ router.get("/feed", function (req, res, next) {
 });
 
 router.get("/profile", isLoggedIn, function (req, res, next) {
-  res.send("your profile")
+  res.render("profile")
 });
 
 router.post("/register", function (req, res) {
@@ -47,6 +48,8 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/profile",
     failureRedirect: "/login",
+    failureFlash:true, // to show the flash messages if user fill wrong details
+
   }),
   function (req, res) {}
 );

@@ -90,3 +90,8 @@ h4 {
 .int:hover{
   background-color: #df0812;
 }
+
+.error{
+  font-weight: 500;
+  color: red;
+}

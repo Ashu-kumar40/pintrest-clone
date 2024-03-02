@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#algn{
+    height: 92vh;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card{
+    width: 370px;
+    height: 435px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
+}
+
+#upper-bg{
+    width: 100%;
+    height: 35%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-pic{
+    width: 35%;
+    background-color: white;
+    border: 3px solid red;
+    border-radius: 50%;
+    padding: 3px;
+    position: absolute;
+    top: 40px;
+}
+
+#lower-bg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    align-items: center;
+    width: 100%;
+    height: 65%;
+}
+
+.text{
+    text-align: center;
+}
+
+.username{
+    margin-top: 0;
+    
+}
+
+.text .name{
+    font-weight: 600;
+    font-size: 24px;
+    padding: 0;
+    margin: 5px;
+}
+
+.text .title{
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+#icons{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+#icons img{
+    width: 24px;
+    height: 24px;
+}
+
+.ico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+#btn button{
+    margin: 0 20px;
+    padding: 10px 15px;
+    background-color: #FFE400;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+#btn button:hover{
+    box-shadow: 0 4px 8px 0 #E7E9EB, 0 6px 20px 0 #E7E9EB;
+}
+
+#l-c-s{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 10px;
+}
+
+#l-c-s .num{
+    display: flex;
+}
+
+#l-c-s .dvr{
+    width: 2px;
+    height: 25px;
+    background-color: gray;
+}
+
+#l-c-s img{
+    width: 24px;
+    height: 24px;
+}
+
+.license{
+    font-size: 12px;
+    text-align: center;
+}
+
+.license .ll{
+    padding: 0 10px;
+    display: inline;
+}
