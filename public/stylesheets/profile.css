@@ -201,7 +201,6 @@ input::file-selector-button {
 .feed-img {
     display: flex;
     flex-direction: column;
-    width: fit-content;
     border-radius: 8px;
     background-color: #E7E9EB;
     overflow: hidden;

@@ -4,6 +4,15 @@ const { v4: uuidv4 } = require("uuid");
 // to find the extention of the file require this package
 const path = require("path");
 
+const profileStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/profile');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./public/images/uploads");

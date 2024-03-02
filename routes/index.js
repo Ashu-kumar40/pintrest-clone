@@ -27,19 +27,17 @@ router.get("/feed", function (req, res, next) {
 
 router.get("/profile", isLoggedIn, async function (req, res, next) {
   // to get the profile information on the profile route, we need have access of user that logged in, here is we can do this
-  const user = await userModel.findOne({
-    username: req.session.passport.user,
-  }).populate("posts")
-  console.log(user); // we can see the user details in console
+  const user = await userModel
+    .findOne({
+      username: req.session.passport.user,
+    })
+    .populate("posts");
+  // console.log(user); // we can see the user details in console
   res.render("profile", { user });
 });
 
 // route for file upload
-router.post(
-  "/upload",
-  isLoggedIn,
-  upload.single("file"),
-  async function (req, res, next) {
+router.post("/upload", isLoggedIn, upload.single("file"), async function (req, res, next) {
     if (!req.file) {
       return res.status(404).send("No file was uploaded!");
     }
@@ -51,9 +49,9 @@ router.post(
     const postData = await postModel.create({
       image: req.file.filename,
       description: req.body.description,
-      user: user._id
-    })
-    user.posts.push(postData._id)
+      user: user._id,
+    });
+    user.posts.push(postData._id);
     await user.save();
     res.redirect("/profile");
     // res.send("File uploaded succesfully:)");
@@ -94,6 +92,13 @@ router.get("/logout", function (req, res) {
     res.redirect("/");
   });
 });
+
+router.post("/updatedp", isLoggedIn, upload.single("profileImage"), async function(req,res){
+  const user = await userModel.findOne({username: req.session.passport.user});
+  user.dp = req.file.filename;
+  await user.save()
+  res.redirect("/profile")
+})
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

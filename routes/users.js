@@ -18,9 +18,7 @@ const userSchema = new mongoose.Schema({
       ref: "Post",
     },
   ],
-  dp: {
-    type: String, // Assuming the profile picture is stored as a URL or file path
-  },
+  dp: String,
   email: {
     type: String,
     required: true,

@@ -6,6 +6,7 @@
 body {
   background-color: gray;
   font-family: Arial, Helvetica, sans-serif;
+  background: url("https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center;
 }
 .container {
   background-color: white;
@@ -42,7 +43,6 @@ body {
   font-weight: 700;
   margin-top: 40px;
   margin-bottom: 10px;
-  line-height: 46px;
 }
 .detail {
   width: 100%;

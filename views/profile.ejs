@@ -4,17 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/profile.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Profile</title>
   </head>
   <body>
     <div id="algn">
+      <form
+        hidden
+        action="/updatedp"
+        method="post"
+        enctype="multipart/form-data"
+        id="update-dp-form"
+      >
+        <input type="file" name="profileImage"/>
+      </form>
       <div id="card">
-        <div id="upper-bg">
-          <img
-            src="https://img.freepik.com/free-vector/hand-drawn-side-profile-cartoon-illustration_23-2150517168.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1709251200&semt=ais"
-            alt="profile-pic"
-            class="profile-pic"
-          />
+        <div id="upper-bg" class="z-10">
+          <div
+            class=" w-32 h-32 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2"
+          >
+            <span
+              id="update-dp"
+              class="absolute bottom-0 right-0 bg-slate-200 flex justify-center items-center rounded-full w-8 h-8 cursor-pointer border-2 border-white"
+              ><i class="ri-pencil-fill"></i
+            ></span>
+            <img
+              src="/images/uploads/<%= user.dp %>"
+              alt="profile-pic"
+              class="object-cover h-full border-4 border-white rounded-full object-fit"
+            />
+          </div>
         </div>
         <div id="lower-bg">
           <div class="text">
@@ -63,8 +87,19 @@
           <a href="/logout" class="btn-primary logout">Logout</a>
         </div>
       </div>
-      <form class="upload-file-form" action="/upload" method="post" enctype="multipart/form-data">
-        <input class="inp-desc" type="text" name="description" id="" placeholder="Write something">
+      <form
+        class="upload-file-form"
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input
+          class="inp-desc  border-2 border-slate-200"
+          type="text"
+          name="description"
+          id=""
+          placeholder="Write something"
+        />
         <input class="" type="file" name="file" />
         <button class="btn-primary" type="sybmit">Upload File</button>
       </form>
@@ -72,7 +107,7 @@
 
     <div class="feed-img-container">
       <% user.posts.forEach(function(post){ %>
-        <div class="feed-img">
+      <div class="feed-img">
         <img
           class="feed-image"
           src="/images/uploads/<%= post.image %>"
@@ -80,9 +115,17 @@
         />
         <div class="description"><%= post.description %></div>
       </div>
-      <% })  %>
-      
+      <% }) %>
     </div>
 
+    <script>
+      document.querySelector("#update-dp").addEventListener("click", function() {
+        document.querySelector("#update-dp-form input").click();
+      })
+
+      document.querySelector("#update-dp-form input").addEventListener("change", function(){
+        document.querySelector("#update-dp-form").submit()
+      })
+    </script>
   </body>
 </html>
