@@ -193,12 +193,9 @@ input::file-selector-button {
 
 .feed-img-container {
     width: 80%;
-    /* max-width: 80%; */
-    display: flex;
-    flex-wrap: wrap;
+    columns: 4;
     gap: 16px;
     margin: 32px auto;
-
 }
 
 .feed-img {
@@ -208,10 +205,11 @@ input::file-selector-button {
     border-radius: 8px;
     background-color: #E7E9EB;
     overflow: hidden;
+    margin-bottom: 16px;
 }
 
 .feed-image {
-    max-width: 300px;
+    max-width: 276px;
 }
 
 .description {

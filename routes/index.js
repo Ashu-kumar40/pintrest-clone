@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var userModel = require("./users");
+var postModel = require("./posts");
 const passport = require("passport");
 
 //for uploading files require the following package
@@ -28,18 +29,36 @@ router.get("/profile", isLoggedIn, async function (req, res, next) {
   // to get the profile information on the profile route, we need have access of user that logged in, here is we can do this
   const user = await userModel.findOne({
     username: req.session.passport.user,
-  });
+  }).populate("posts")
   console.log(user); // we can see the user details in console
   res.render("profile", { user });
 });
 
 // route for file upload
-router.post("/upload", isLoggedIn, upload.single("file"), function (req, res, next) {
-  if (!req.file) {
-     return res.status(404).send("No file was uploaded!");
+router.post(
+  "/upload",
+  isLoggedIn,
+  upload.single("file"),
+  async function (req, res, next) {
+    if (!req.file) {
+      return res.status(404).send("No file was uploaded!");
+    }
+    // accessing the user
+    const user = await userModel.findOne({
+      username: req.session.passport.user,
+    });
+    // Now passing the user details when creating a post
+    const postData = await postModel.create({
+      image: req.file.filename,
+      description: req.body.description,
+      user: user._id
+    })
+    user.posts.push(postData._id)
+    await user.save();
+    res.redirect("/profile");
+    // res.send("File uploaded succesfully:)");
   }
-  res.send("File uploaded succesfully:)")
-});
+);
 
 router.post("/register", function (req, res) {
   // const userData = new userModel({

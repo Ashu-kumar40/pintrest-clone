@@ -71,14 +71,17 @@
     </div>
 
     <div class="feed-img-container">
-      <div class="feed-img">
+      <% user.posts.forEach(function(post){ %>
+        <div class="feed-img">
         <img
           class="feed-image"
-          src="/images/22f24d25-f337-4282-aa4e-64d2a6b873ce.jpeg"
+          src="/images/uploads/<%= post.image %>"
           alt="img"
         />
-        <div class="description">this is description</div>
+        <div class="description"><%= post.description %></div>
       </div>
+      <% })  %>
+      
     </div>
 
   </body>
