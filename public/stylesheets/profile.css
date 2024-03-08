@@ -196,21 +196,20 @@ input::file-selector-button {
     columns: 4;
     gap: 16px;
     margin: 32px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .feed-img {
+    /* height: 200px; */
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    background-color: #E7E9EB;
+    /* background-color: #E7E9EB; */
     overflow: hidden;
     margin-bottom: 16px;
 }
 
-.feed-image {
-    max-width: 276px;
-}
-
 .description {
-    padding: 12px;
+    padding: 12px 0 2px 0;
 }

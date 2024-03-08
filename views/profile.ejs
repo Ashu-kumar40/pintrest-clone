@@ -21,12 +21,12 @@
         enctype="multipart/form-data"
         id="update-dp-form"
       >
-        <input type="file" name="profileImage"/>
+        <input type="file" name="profileImage" />
       </form>
       <div id="card">
         <div id="upper-bg" class="z-10">
           <div
-            class=" w-32 h-32 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2"
+            class="w-32 h-32 absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2"
           >
             <span
               id="update-dp"
@@ -88,44 +88,48 @@
         </div>
       </div>
       <form
-        class="upload-file-form"
+        class="upload-file-form h-16 flex justify-between items-center border-2 border-slate-200 overflow-hidden rounded-[16px]"
         action="/upload"
         method="post"
         enctype="multipart/form-data"
       >
+      <div class="h-full bg-[#f30d19] mr-4 text-white font-bold flex justify-center items-center text-center px-8">Create pin</div>
         <input
-          class="inp-desc  border-2 border-slate-200"
+          class="inp-desc border-2 border-slate-200"
           type="text"
           name="description"
           id=""
           placeholder="Write something"
         />
         <input class="" type="file" name="file" />
-        <button class="btn-primary" type="sybmit">Upload File</button>
+        <button class="btn-primary mr-4" type="sybmit">Upload File</button>
       </form>
     </div>
 
     <div class="feed-img-container">
-      <% user.posts.forEach(function(post){ %>
       <div class="feed-img">
         <img
-          class="feed-image"
-          src="/images/uploads/<%= post.image %>"
+          class="feed-image rounded-lg object-cover h-40"
+          src="/images/uploads/<%= user.posts?.[0]?.image %>"
           alt="img"
         />
-        <div class="description"><%= post.description %></div>
+        <a href="/show/pins" class="description font-bold"><%= user.posts?.[0]?.description %></a>
+        <span class="text-xs">Pins - <%= user.posts.length %></span>
       </div>
-      <% }) %>
     </div>
 
     <script>
-      document.querySelector("#update-dp").addEventListener("click", function() {
-        document.querySelector("#update-dp-form input").click();
-      })
+      document
+        .querySelector("#update-dp")
+        .addEventListener("click", function () {
+          document.querySelector("#update-dp-form input").click();
+        });
 
-      document.querySelector("#update-dp-form input").addEventListener("change", function(){
-        document.querySelector("#update-dp-form").submit()
-      })
+      document
+        .querySelector("#update-dp-form input")
+        .addEventListener("change", function () {
+          document.querySelector("#update-dp-form").submit();
+        });
     </script>
   </body>
 </html>

@@ -32,7 +32,7 @@ router.get("/profile", isLoggedIn, async function (req, res, next) {
       username: req.session.passport.user,
     })
     .populate("posts");
-  // console.log(user); // we can see the user details in console
+  // console.log(user); // we can see the user details in console 
   res.render("profile", { user });
 });
 
@@ -98,7 +98,17 @@ router.post("/updatedp", isLoggedIn, upload.single("profileImage"), async functi
   user.dp = req.file.filename;
   await user.save()
   res.redirect("/profile")
-})
+});
+
+router.get("/show/pins", isLoggedIn, async function (req, res) {
+  const user = await userModel
+    .findOne({
+      username: req.session.passport.user,
+    })
+    .populate("posts");
+  // console.log(user); // we can see the user details in console 
+  res.render("showpins", { user });
+});
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
